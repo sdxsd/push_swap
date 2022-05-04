@@ -38,10 +38,3 @@ A program is free software if users have all of these freedoms.
 */
 
 #include "../include/push_swap.h"
-
-int	main(int argc, char *argv[])
-{
-	if (argc < 1)
-		ft_putstr("Error\n");
-
-}

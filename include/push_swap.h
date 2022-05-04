@@ -38,8 +38,8 @@ A program is free software if users have all of these freedoms.
 */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
+# include "../libft/libft.h"
 
 
-
-#endif // PUSH_SWAP_H
+# endif // PUSH_SWAP_H
