@@ -38,3 +38,14 @@ A program is free software if users have all of these freedoms.
 */
 
 #include "../include/push_swap.h"
+
+void	sa(t_list *head);
+{
+	int	first;
+	int	second;
+
+	int first = *(int)head->content;
+	int second = *(int)head->next->content;
+	*(int)head->content = second;
+	*(int)head->content->next = first;
+}
