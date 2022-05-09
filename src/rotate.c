@@ -39,7 +39,25 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
-void	*rotate(t_list *lst)
+void	rotate(t_list *lst)
 {
+	static void	*first;
+	static int	count;
+	static int	size;
 
+	if (!first)
+	{
+		first = lst->content;
+		size = ft_lstsize(lst);
+	}
+	lst->content = lst->next->content;
+	count++;
+	if (lst->next)
+		rotate(lst->next);
+	if (count == ft_lstsize(lst))
+	{
+		lst->content = first;
+		first = NULL;
+		size = 0;
+	}
 }
