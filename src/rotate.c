@@ -54,7 +54,7 @@ void	rotate(t_list *lst)
 	count++;
 	if (lst->next)
 		rotate(lst->next);
-	if (count == ft_lstsize(lst))
+	if (count == size)
 	{
 		lst->content = first;
 		first = NULL;
