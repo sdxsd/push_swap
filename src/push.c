@@ -38,3 +38,15 @@ A program is free software if users have all of these freedoms.
 */
 
 #include "../include/push_swap.h"
+
+/* pa & pb. */
+int	push(t_list *from, t_list *to)
+{
+	int	lsize;
+
+	lsize = ft_lstsize(from);
+	if (!lsize)
+		return (lsize);
+	ft_lstadd_front(&to, from);
+	return (ft_lstsize(to));
+}

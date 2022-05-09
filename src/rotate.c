@@ -38,3 +38,8 @@ A program is free software if users have all of these freedoms.
 */
 
 #include "../include/push_swap.h"
+
+void	*rotate(t_list *lst)
+{
+
+}
