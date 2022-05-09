@@ -38,20 +38,3 @@ A program is free software if users have all of these freedoms.
 */
 
 #include "../include/push_swap.h"
-
-void	swap(t_list *head)
-{
-	void	*first;
-	void	*second;
-
-	first = head->content;
-	second = head->next->content;
-	head->content = second;
-	head->next->content = first;
-}
-
-void	ss(t_list *a, t_list *b)
-{
-	swap(a);
-	swap(b);
-}
