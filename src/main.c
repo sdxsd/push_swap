@@ -39,9 +39,26 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
+static void	add_content(t_list *stack, char	*argv[])
+{
+	long	*content_long;
+
+	content_long = stack->content;
+	ft_printf("%d\n", content_long);
+	*content_long = ft_atoi(*argv);
+	argv++;
+	if (stack->next)
+		return (add_content(stack->next, argv));
+	else
+		return ;
+}
+
 static void	print_stack(void *content)
 {
-	ft_printf("+---+\n%d\n", (long)content);
+	long	*content_long;
+
+	content_long = content;
+	ft_printf("+---+\n%d\n", content_long);
 }
 
 static t_list	*gen_stack(int stack_size)
@@ -51,13 +68,13 @@ static t_list	*gen_stack(int stack_size)
 	int		iter;
 
 	iter = 0;
-	first_element = ft_lstnew(malloc(sizeof(int)));
+	first_element = ft_lstnew(malloc(sizeof(long)));
 	while (iter != stack_size)
 	{
-		new_element = ft_lstnew(malloc(sizeof(int)));
+		new_element = ft_lstnew(malloc(sizeof(long)));
 		if (!new_element)
 			ft_lstclear(&first_element, &free);
-		ft_lstadd_back(&first_element, ft_lstnew(malloc(sizeof(int))));
+		ft_lstadd_back(&first_element, new_element);
 		iter++;
 	}
 	return (first_element);
@@ -70,5 +87,6 @@ int	main(int argc, char *argv[])
 	if (argc < 1)
 		ft_putstr("Error\n");
 	stack_one = gen_stack(argc - 2);
+	add_content(stack_one, argv + 1);
 	ft_lstiter(stack_one, &print_stack);
 }
