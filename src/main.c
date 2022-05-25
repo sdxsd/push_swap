@@ -39,9 +39,9 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
-static void	print_stack()
+static void	print_stack(void *content)
 {
-
+	ft_printf("+---+\n%d\n", (long)content);
 }
 
 static t_list	*gen_stack(int stack_size)
@@ -52,17 +52,23 @@ static t_list	*gen_stack(int stack_size)
 
 	iter = 0;
 	first_element = ft_lstnew(malloc(sizeof(int)));
-	while (iter < stack_size)
+	while (iter != stack_size)
 	{
-		ft_lstadd_back(&first_element, ft_lstnew(malloc(sizeof(int))));
+		new_element = ft_lstnew(malloc(sizeof(int)));
 		if (!new_element)
-			ft_lstclear(&first_element);
+			ft_lstclear(&first_element, &free);
+		ft_lstadd_back(&first_element, ft_lstnew(malloc(sizeof(int))));
+		iter++;
 	}
 	return (first_element);
 }
 
 int	main(int argc, char *argv[])
 {
+	t_list	*stack_one;
+
 	if (argc < 1)
 		ft_putstr("Error\n");
+	stack_one = gen_stack(argc - 2);
+	ft_lstiter(stack_one, &print_stack);
 }
