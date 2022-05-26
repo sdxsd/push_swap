@@ -43,8 +43,8 @@ static void	add_content(t_list *stack, char	*argv[])
 {
 	long	num;
 
-	num = ft_atoi(*argv);
-	stack->content = (void *)num;
+	num = ft_atoi("3");
+	ft_memmove(stack->content, &num, sizeof(long));
 	argv++;
 	if (stack->next)
 		return (add_content(stack->next, argv));
@@ -54,7 +54,10 @@ static void	add_content(t_list *stack, char	*argv[])
 
 static void	print_stack(void *content)
 {
-	ft_printf("+---+\n%d\n", (long)content);
+	long	*long_content;
+
+	long_content = content;
+	ft_printf("+---+\n%d\n", long_content);
 }
 
 static t_list	*gen_stack(int stack_size)
@@ -64,6 +67,8 @@ static t_list	*gen_stack(int stack_size)
 	int		iter;
 
 	iter = 0;
+	first_element = NULL;
+	new_element = NULL;
 	while (iter < stack_size)
 	{
 		new_element = ft_lstnew(malloc(sizeof(long)));
@@ -77,11 +82,17 @@ static t_list	*gen_stack(int stack_size)
 
 int	main(int argc, char *argv[])
 {
-	t_list	*stack_one;
+	t_list	*stack_1;
+	t_list	*stack_2;
 
-	if (argc < 1)
+	if (argc < 2)
+	{
 		ft_putstr("Error\n");
-	stack_one = gen_stack(argc - 1);
-	add_content(stack_one, &argv[1]);
-	ft_lstiter(stack_one, &print_stack);
+		return (-1);
+	}
+	stack_1 = gen_stack(argc - 1);
+	stack_2 = gen_stack(argc - 1);
+	add_content(stack_1, argv + 1);
+	ft_lstiter(stack_1, &print_stack);
+	/* ft_lstiter(stack_2, &print_stack); */
 }

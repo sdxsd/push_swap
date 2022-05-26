@@ -5,7 +5,7 @@
 # @version 0.1
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g
 NAME = push_swap
 LIB = libft/libft.a
 CFILES = \
