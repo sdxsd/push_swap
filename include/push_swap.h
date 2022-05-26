@@ -42,5 +42,4 @@ A program is free software if users have all of these freedoms.
 # include "../libft/libft.h"
 # include <stdlib.h>
 
-
-# endif // PUSH_SWAP_H
+#endif // PUSH_SWAP_H
