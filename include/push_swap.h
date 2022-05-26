@@ -42,4 +42,14 @@ A program is free software if users have all of these freedoms.
 # include "../libft/libft.h"
 # include <stdlib.h>
 
+/* ROTATE FUNCTIONS */
+void	rotate(t_list *lst);
+void	rr(t_list *a, t_list *b);
+
+/* PUSH FUNCTIONS */
+int	push(t_list *from, t_list *to);
+
+/* SWAP FUNCTIONS */
+void	swap(t_list *head);
+
 #endif // PUSH_SWAP_H

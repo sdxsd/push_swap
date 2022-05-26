@@ -99,4 +99,9 @@ int	main(int argc, char *argv[])
 	ft_lstiter(stack_2, &print_stack);
 	ft_lstclear(&stack_1, &free);
 	ft_lstclear(&stack_2, &free);
+	push(stack_1, stack_2);
+	ft_printf("STACK 1:\n");
+	ft_lstiter(stack_1, &print_stack);
+	ft_printf("+---+\nSTACK 2:\n");
+	ft_lstiter(stack_2, &print_stack);
 }

@@ -9,7 +9,10 @@ CFLAGS = -g
 NAME = push_swap
 LIB = libft/libft.a
 CFILES = \
-		src/main.c
+		src/main.c \
+		src/push.c \
+		src/rotate.c \
+		src/swap.c
 OFILES = $(CFILES:.c=.o)
 
 all: $(NAME)
