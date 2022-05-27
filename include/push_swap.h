@@ -49,7 +49,11 @@ void	rr(t_list *a, t_list *b);
 /* PUSH FUNCTIONS */
 int	push(t_list *from, t_list *to);
 
+/* MISC FUNCTIONS  */
+void	shuffle(t_list *up);
+
 /* SWAP FUNCTIONS */
 void	swap(t_list *head);
+void	ss(t_list *a, t_list *b);
 
 #endif // PUSH_SWAP_H
