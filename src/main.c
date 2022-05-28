@@ -95,15 +95,7 @@ int	main(int argc, char *argv[])
 	add_content(stack_1, argv + 1);
 	ft_printf("STACK 1:\n");
 	ft_lstiter(stack_1, &print_stack);
-	ft_printf("+---+\nSTACK 2:\n");
-	ft_lstiter(stack_2, &print_stack);
-	ss(stack_1, stack_2);
-	push(stack_1, stack_2);
-	push(stack_1, stack_2);
-	push(stack_1, stack_2);
 	push(stack_1, stack_2);
 	ft_printf("STACK 1:\n");
 	ft_lstiter(stack_1, &print_stack);
-	ft_printf("+---+\nSTACK 2:\n");
-	ft_lstiter(stack_2, &print_stack);
 }

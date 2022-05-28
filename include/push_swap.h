@@ -43,7 +43,7 @@ A program is free software if users have all of these freedoms.
 # include <stdlib.h>
 
 /* ROTATE FUNCTIONS */
-void	rotate(t_list *lst);
+void	rotate(t_list *up);
 void	rr(t_list *a, t_list *b);
 
 /* PUSH FUNCTIONS */

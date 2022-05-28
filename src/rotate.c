@@ -40,27 +40,19 @@ A program is free software if users have all of these freedoms.
 #include "../include/push_swap.h"
 
 /* Moves all elements in t_list *lst up by 1. */
-void	rotate(t_list *lst)
+void	rotate(t_list *up)
 {
-	static void	*first;
-	static int	count;
-	static int	size;
+	void	*tmp;
 
-	if (!first)
+	if (ft_lstsize(up) > 1)
 	{
-		first = lst->content;
-		size = ft_lstsize(lst);
+		tmp = up->content;
+		up->content = up->next->content;
+		up->next->content = tmp;
+		return (rotate(up->next));
 	}
-	lst->content = lst->next->content;
-	count++;
-	if (lst->next)
-		rotate(lst->next);
-	if (count == size)
-	{
-		lst->content = first;
-		first = NULL;
-		size = 0;
-	}
+	else
+		return ;
 }
 
 /* Simple wrapper.  */

@@ -39,21 +39,6 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
-void	shuffle(t_list *up)
-{
-	void	*tmp;
-
-	if (ft_lstsize(up) > 1)
-	{
-		tmp = up->content;
-		up->content = up->next->content;
-		up->next->content = tmp;
-		return (shuffle(up->next));
-	}
-	else
-		return ;
-}
-
 /* pa & pb */
 int	push(t_list *from, t_list *to)
 {
@@ -65,7 +50,7 @@ int	push(t_list *from, t_list *to)
 		return (push(from->next, to));
 	tmp = from->content;
 	from->content = to->content;
-	shuffle(from);
+	rotate(from);
 	to->content = tmp;
 	return (1);
 }
