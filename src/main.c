@@ -83,19 +83,12 @@ static t_list	*gen_stack(int stack_size)
 int	main(int argc, char *argv[])
 {
 	t_list	*stack_1;
-	t_list	*stack_2;
+	/* t_list	*stack_2; */
 
 	if (argc < 2)
-	{
-		ft_putstr("Error\n");
-		return (-1);
-	}
+		return (0);
 	stack_1 = gen_stack(argc - 1);
-	stack_2 = gen_stack(argc - 1);
+	/* stack_2 = gen_stack(argc - 1); */
 	add_content(stack_1, argv + 1);
-	ft_printf("STACK 1:\n");
-	ft_lstiter(stack_1, &print_stack);
-	push(stack_1, stack_2);
-	ft_printf("STACK 1:\n");
-	ft_lstiter(stack_1, &print_stack);
+	sort_two(stack_1);
 }

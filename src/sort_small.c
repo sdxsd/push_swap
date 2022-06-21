@@ -37,26 +37,21 @@ The definition of Free Software is as follows:
 A program is free software if users have all of these freedoms.
 */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libft/libft.h"
-# include <stdlib.h>
+#include "../include/push_swap.h"
 
-/* ROTATE FUNCTIONS */
-void	rotate(t_list *up);
-void	rr(t_list *a, t_list *b);
+void	sort_two(t_list *list)
+{
+	long	*content;
 
-/* PUSH FUNCTIONS */
-int		push(t_list *from, t_list *to);
+	content = list->content;
+	if (*content > *(long *)list->next->content)
+	{
+		ft_putstr("ra\n");
+		rotate(list);
+	}
+}
 
-/* MISC FUNCTIONS  */
-void	shuffle(t_list *up);
+void	sort_three(t_list *list)
+{
 
-/* SWAP FUNCTIONS */
-void	swap(t_list *head);
-void	ss(t_list *a, t_list *b);
-
-/* SMALL SORTING FUNCTIONS */
-void	sort_two(t_list *list);
-
-#endif // PUSH_SWAP_H
+}
