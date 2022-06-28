@@ -48,8 +48,6 @@ static void	add_content(t_nlist *stack, char *argv[])
 	argv++;
 	if (stack->next)
 		return (add_content(stack->next, argv));
-	else
-		return ;
 }
 
 static void	print_stack(t_nlist	*stack)
