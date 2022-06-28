@@ -38,51 +38,29 @@ A program is free software if users have all of these freedoms.
 */
 
 #include "../include/push_swap.h"
+#include <limits.h>
 
-static void	add_content(t_nlist *stack, char *argv[])
+// Returns the position of the largest integer within the list.
+int	find_largest(t_list *list)
 {
-	int	num;
+	int	last_largest;
+	int	last_largest_pos;
+	int	index;
 
-	num = ft_atoi(*argv);
-	stack->content = num;
-	argv++;
-	if (stack->next)
-		return (add_content(stack->next, argv));
-	else
-		return ;
-}
-
-/* ✚ Ie muden maoeken nywe fynktionen foar ten yebroik fan */
-/* thie nlist type. Klaor yetan [✓] ✚  */
-static t_nlist	*gen_stack(int stack_size)
-{
-	t_nlist	*first_element;
-	t_nlist	*new_element;
-	int		iter;
-
-	iter = 0;
-	first_element = NULL;
-	new_element = NULL;
-	while (iter < stack_size)
-	{
-		new_element = ft_nlstnew(0);
-		if (!new_element)
-			ft_nlstclear(&first_element, &free);
-		ft_nlstadd_back(&first_element, new_element);
-		iter++;
-	}
-	return (first_element);
-}
-
-int	main(int argc, char *argv[])
-{
-	t_nlist	*stack_1;
-	/* t_list	*stack_2; */
-
-	if (argc < 2)
+	index = 1;
+	last_largest = INT_MIN;
+	if (!list)
 		return (0);
-	stack_1 = gen_stack(argc - 1);
-	/* stack_2 = gen_stack(argc - 1); */
-	add_content(stack_1, argv + 1);
-	sort_two(stack_1);
+	while (TRUE)
+	{
+		if (*(int *)list->content > last_largest)
+		{
+			last_largest = *(int *)list->content;
+			last_largest_pos = index;
+		}
+		if (list->next)
+			list = list->next;
+		index++;
+	}
+	return (index);
 }

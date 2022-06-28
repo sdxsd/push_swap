@@ -13,6 +13,8 @@ CFILES = \
 		src/push.c \
 		src/rotate.c \
 		src/sort_small.c \
+		src/find.c \
+		src/list.c \
 		src/swap.c
 OFILES = $(CFILES:.c=.o)
 

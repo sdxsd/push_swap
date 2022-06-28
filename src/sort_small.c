@@ -53,5 +53,10 @@ void	sort_two(t_list *list)
 
 void	sort_three(t_list *list)
 {
-
+	if (find_largest(list) == 1)
+	{
+		ft_putstr("ra\n");
+		rotate(list);
+		if (*(long *)list->content)
+	}
 }
