@@ -39,24 +39,22 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
-void	sort_two(t_list *list)
+void	sort_two(t_nlist *list)
 {
-	long	*content;
 
-	content = list->content;
-	if (*content > *(long *)list->next->content)
+	if (list->content > list->next->content)
 	{
 		ft_putstr("ra\n");
 		rotate(list);
 	}
 }
 
-void	sort_three(t_list *list)
-{
-	if (find_largest(list) == 1)
-	{
-		ft_putstr("ra\n");
-		rotate(list);
-		if (*(long *)list->content)
-	}
-}
+/* void	sort_three(t_nlist *list) */
+/* { */
+/* 	if (find_largest(list) == 1) */
+/* 	{ */
+/* 		ft_putstr("ra\n"); */
+/* 		rotate(list); */
+/* 		if (*(long *)list->content) */
+/* 	} */
+/* } */

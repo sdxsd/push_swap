@@ -40,13 +40,11 @@ A program is free software if users have all of these freedoms.
 #include "../include/push_swap.h"
 
 /* pa & pb */
-int	push(t_list *from, t_list *to)
+int	push(t_nlist *from, t_nlist *to)
 {
-	void	*tmp;
-	long	*from_content;
+	int	tmp;
 
-	from_content = from->content;
-	if (*from_content == 0)
+	if (from->content == 0)
 		return (push(from->next, to));
 	tmp = from->content;
 	from->content = to->content;

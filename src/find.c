@@ -41,7 +41,7 @@ A program is free software if users have all of these freedoms.
 #include <limits.h>
 
 // Returns the position of the largest integer within the list.
-int	find_largest(t_list *list)
+int	find_largest(t_nlist *list)
 {
 	int	last_largest;
 	int	last_largest_pos;
@@ -53,14 +53,14 @@ int	find_largest(t_list *list)
 		return (0);
 	while (TRUE)
 	{
-		if (*(int *)list->content > last_largest)
+		if (list->content > last_largest)
 		{
-			last_largest = *(int *)list->content;
+			last_largest = list->content;
 			last_largest_pos = index;
 		}
 		if (list->next)
 			list = list->next;
 		index++;
 	}
-	return (index);
+	return (last_largest_pos);
 }

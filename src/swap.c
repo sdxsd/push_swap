@@ -40,10 +40,10 @@ A program is free software if users have all of these freedoms.
 #include "../include/push_swap.h"
 
 /* sa & sb. */
-void	swap(t_list *head)
+void	swap(t_nlist *head)
 {
-	void	*first;
-	void	*second;
+	int	first;
+	int	second;
 
 	first = head->content;
 	second = head->next->content;
@@ -52,7 +52,7 @@ void	swap(t_list *head)
 }
 
 /* Simple wrapper. */
-void	ss(t_list *a, t_list *b)
+void	ss(t_nlist *a, t_nlist *b)
 {
 	swap(a);
 	swap(b);

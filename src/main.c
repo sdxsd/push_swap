@@ -52,6 +52,15 @@ static void	add_content(t_nlist *stack, char *argv[])
 		return ;
 }
 
+static void	print_stack(t_nlist	*stack)
+{
+	ft_printf("[%d]", stack->content);
+	if (stack->next)
+		return (print_stack(stack->next));
+	else
+		ft_putstr("\n");
+}
+
 /* ✚ Ie muden maoeken nywe fynktionen foar ten yebroik fan */
 /* thie nlist type. Klaor yetan [✓] ✚  */
 static t_nlist	*gen_stack(int stack_size)
@@ -84,5 +93,6 @@ int	main(int argc, char *argv[])
 	stack_1 = gen_stack(argc - 1);
 	/* stack_2 = gen_stack(argc - 1); */
 	add_content(stack_1, argv + 1);
+	print_stack(stack_1);
 	sort_two(stack_1);
 }

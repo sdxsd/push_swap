@@ -40,11 +40,11 @@ A program is free software if users have all of these freedoms.
 #include "../include/push_swap.h"
 
 /* Moves all elements in t_list *lst up by 1. */
-void	rotate(t_list *up)
+void	rotate(t_nlist *up)
 {
-	void	*tmp;
+	int	tmp;
 
-	if (ft_lstsize(up) > 1)
+	if (ft_lstsize((t_list *)up) > 1)
 	{
 		tmp = up->content;
 		up->content = up->next->content;
@@ -56,7 +56,7 @@ void	rotate(t_list *up)
 }
 
 /* Simple wrapper.  */
-void	rr(t_list *a, t_list *b)
+void	rr(t_nlist *a, t_nlist *b)
 {
 	rotate(a);
 	rotate(b);

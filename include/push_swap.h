@@ -55,21 +55,21 @@ void	ft_nlstadd_back(t_nlist **lst, t_nlist *new);
 t_nlist	*ft_nlstlast(t_nlist *lst);
 
 /* ROTATE FUNCTIONS */
-void	rotate(t_list *up);
-void	rr(t_list *a, t_list *b);
+void	rotate(t_nlist *up);
+void	rr(t_nlist *a, t_nlist *b);
 
 /* PUSH FUNCTIONS */
-int		push(t_list *from, t_list *to);
+int		push(t_nlist *from, t_nlist *to);
 
 /* MISC FUNCTIONS  */
-void	shuffle(t_list *up);
-int		find_largest(t_list *list);
+void	shuffle(t_nlist *up);
+int		find_largest(t_nlist *list);
 
 /* SWAP FUNCTIONS */
-void	swap(t_list *head);
-void	ss(t_list *a, t_list *b);
+void	swap(t_nlist *head);
+void	ss(t_nlist *a, t_nlist *b);
 
 /* SMALL SORTING FUNCTIONS */
-void	sort_two(t_list *list);
+void	sort_two(t_nlist *list);
 
 #endif // PUSH_SWAP_H
