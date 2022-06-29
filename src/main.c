@@ -48,12 +48,19 @@ static void	print_stack(t_nlist	*stack)
 		ft_putstr("\n");
 }
 
-static void		string_to_list(t_nlist *list, )
+t_nlist	*string_to_list(t_nlist *list, char *content)
 {
+	char	**content_array;
+	t_nlist	*sublist;
 
+	content_array = ft_split(content, ' ');
+	if (!content_array)
+		return (NULL);
+	sublist = gen_stack(content_array);
+	ft_nlstadd_back(&list, sublist);
 }
 
-static t_nlist	*gen_stack(char	**content)
+t_nlist	*gen_stack(char	**content)
 {
 	t_nlist	*first_element;
 	t_nlist	*new_element;
@@ -65,13 +72,15 @@ static t_nlist	*gen_stack(char	**content)
 		if (ft_strchr(*content, ' '))
 		{
 			string_to_list(first_element, *content);
+			content++;
 		}
 		else
 		{
-			new_element = ft_nlstnew(0);
+			new_element = ft_nlstnew(ft_atoi(*content));
 			if (!new_element)
 				ft_nlstclear(&first_element, &free);
 			ft_nlstadd_back(&first_element, new_element);
+			content++;
 		}
 	}
 	return (first_element);

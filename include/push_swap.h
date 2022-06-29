@@ -53,6 +53,8 @@ t_nlist	*ft_nlstnew(int content);
 void	ft_nlstclear(t_nlist **lst, void (*del)(void*));
 void	ft_nlstadd_back(t_nlist **lst, t_nlist *new);
 t_nlist	*ft_nlstlast(t_nlist *lst);
+t_nlist	*gen_stack(char	**content);
+t_nlist	*string_to_list(t_nlist *list, char *content);
 
 /* ROTATE FUNCTIONS */
 void	rotate(t_nlist *up);
