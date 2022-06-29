@@ -41,7 +41,6 @@ A program is free software if users have all of these freedoms.
 
 void	sort_two(t_nlist *list)
 {
-
 	if (list->content > list->next->content)
 	{
 		ft_putstr("ra\n");

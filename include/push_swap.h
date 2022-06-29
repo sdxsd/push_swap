@@ -44,7 +44,7 @@ A program is free software if users have all of these freedoms.
 
 /* ✚ Myn lyst fur ten yebroik inse ten push_swap proyyrama ✚ */
 typedef struct s_num_list {
-	int				content;
+	int					content;
 	struct s_num_list	*next;
 }	t_nlist;
 
@@ -53,6 +53,8 @@ t_nlist	*ft_nlstnew(int content);
 void	ft_nlstclear(t_nlist **lst, void (*del)(void*));
 void	ft_nlstadd_back(t_nlist **lst, t_nlist *new);
 t_nlist	*ft_nlstlast(t_nlist *lst);
+
+/* INPUT FUNCTIONS */
 t_nlist	*gen_stack(char	**content);
 t_nlist	*string_to_list(t_nlist *list, char *content);
 

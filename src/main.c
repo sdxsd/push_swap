@@ -58,6 +58,18 @@ t_nlist	*string_to_list(t_nlist *list, char *content)
 		return (NULL);
 	sublist = gen_stack(content_array);
 	ft_nlstadd_back(&list, sublist);
+	return (list);
+}
+
+static int	invalid_char_filter(char *to_check)
+{
+	while (*to_check != '\0')
+	{
+		if (!ft_isdigit(*to_check) && *to_check != ' ')
+			return (FALSE);
+		to_check++;
+	}
+	return (TRUE);
 }
 
 t_nlist	*gen_stack(char	**content)
@@ -67,8 +79,10 @@ t_nlist	*gen_stack(char	**content)
 
 	first_element = NULL;
 	new_element = NULL;
-	while (content != NULL)
+	while (*content != NULL)
 	{
+		if (!invalid_char_filter(*content))
+			return (NULL);
 		if (ft_strchr(*content, ' '))
 		{
 			string_to_list(first_element, *content);
@@ -89,12 +103,15 @@ t_nlist	*gen_stack(char	**content)
 int	main(int argc, char *argv[])
 {
 	t_nlist	*stack_1;
-	/* t_list	*stack_2; */
 
 	if (argc < 2)
 		return (0);
 	stack_1 = gen_stack(argv + 1);
-	/* stack_2 = gen_stack(argc - 1); */
+	if (!stack_1)
+	{
+		ft_putstr("Error\n");
+		return (-1);
+	}
 	print_stack(stack_1);
 	sort_two(stack_1);
 }
