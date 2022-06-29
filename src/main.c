@@ -39,22 +39,36 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
+static int	str_numcount(char *str)
+{
+	int	count;
+	int	iter;
+
+	count = 0;
+	iter = 0;
+
+}
+
 static int	count_nums(char **argv)
 {
 	int	count;
+	int	iterator;
 
 	count = 0;
-	if (!ft_strchr(argv, ' '))
+	while (*argv != NULL)
 	{
-		count++;
-		argv++;
-	}
-	else
-	{
-		while(argv != NULL)
+		if (!ft_strchr(*argv, ' '))
 		{
-			*argv = ft_strchr(*argv, ' ');
-			count++;
+				count++;
+				argv++;
+		}
+		else
+		{
+			iterator = 0;
+			while (argv[0][iterator++] != '\0')
+				if (argv[0][iterator] == ' ')
+					count++;
+			argv++;
 		}
 	}
 	ft_printf("%d", count);
@@ -110,7 +124,7 @@ int	main(int argc, char *argv[])
 
 	if (argc < 2)
 		return (0);
-	count_nums(argv);
+	count_nums(argv + 1);
 	stack_1 = gen_stack(argc - 1);
 	/* stack_2 = gen_stack(argc - 1); */
 	add_content(stack_1, argv + 1);
