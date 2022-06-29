@@ -57,6 +57,7 @@ t_nlist	*ft_nlstlast(t_nlist *lst);
 /* INPUT FUNCTIONS */
 t_nlist	*gen_stack(char	**content);
 t_nlist	*string_to_list(t_nlist *list, char *content);
+int		invalid_char_filter(char *to_check);
 
 /* ROTATE FUNCTIONS */
 void	rotate(t_nlist *up);

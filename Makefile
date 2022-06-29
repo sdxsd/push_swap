@@ -15,6 +15,7 @@ CFILES = \
 		src/sort_small.c \
 		src/find.c \
 		src/list.c \
+		src/input.c \
 		src/swap.c
 OFILES = $(CFILES:.c=.o)
 

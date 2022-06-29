@@ -39,6 +39,22 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
+static int	chk_duplicates(t_nlist *stack)
+{
+	int		lsize;
+	int		iter;
+	int		value;
+	t_nlist	*index;
+
+	index = stack;
+	lsize = ft_lstsize((t_list *)stack);
+	while(iter < lsize)
+	{
+
+	}
+	return (TRUE);
+}
+
 static void	print_stack(t_nlist	*stack)
 {
 	ft_printf("[%d]", stack->content);
@@ -46,58 +62,6 @@ static void	print_stack(t_nlist	*stack)
 		return (print_stack(stack->next));
 	else
 		ft_putstr("\n");
-}
-
-t_nlist	*string_to_list(t_nlist *list, char *content)
-{
-	char	**content_array;
-	t_nlist	*sublist;
-
-	content_array = ft_split(content, ' ');
-	if (!content_array)
-		return (NULL);
-	sublist = gen_stack(content_array);
-	ft_nlstadd_back(&list, sublist);
-	return (list);
-}
-
-static int	invalid_char_filter(char *to_check)
-{
-	while (*to_check != '\0')
-	{
-		if (!ft_isdigit(*to_check) && *to_check != ' ')
-			return (FALSE);
-		to_check++;
-	}
-	return (TRUE);
-}
-
-t_nlist	*gen_stack(char	**content)
-{
-	t_nlist	*first_element;
-	t_nlist	*new_element;
-
-	first_element = NULL;
-	new_element = NULL;
-	while (*content != NULL)
-	{
-		if (!invalid_char_filter(*content))
-			return (NULL);
-		if (ft_strchr(*content, ' '))
-		{
-			string_to_list(first_element, *content);
-			content++;
-		}
-		else
-		{
-			new_element = ft_nlstnew(ft_atoi(*content));
-			if (!new_element)
-				ft_nlstclear(&first_element, &free);
-			ft_nlstadd_back(&first_element, new_element);
-			content++;
-		}
-	}
-	return (first_element);
 }
 
 int	main(int argc, char *argv[])
