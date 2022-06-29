@@ -39,59 +39,6 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
-static char	**input_processing(int count, char **input)
-{
-	int		iterator;
-	int		iterator_2;
-	char	*tmp_str;
-	char	*tmp_str_2;
-
-	iterator = count;
-	iterator_2 = 0;
-	while (iterator > 1)
-	{
-		tmp_str = ft_strjoin(input[iterator_2], input[iterator_2 + 1]);
-
-	}
-}
-
-static int	count_nums(char **argv)
-{
-	int	count;
-	int	iterator;
-
-	count = 0;
-	while (*argv != NULL)
-	{
-		if (!ft_strchr(*argv, ' '))
-		{
-				count++;
-				argv++;
-		}
-		else
-		{
-			iterator = 0;
-			while (argv[0][iterator++] != '\0')
-				if (argv[0][iterator] == ' ')
-					count++;
-			argv++;
-		}
-	}
-	ft_printf("%d", count);
-	return (count);
-}
-
-static void	add_content(t_nlist *stack, char *argv[])
-{
-	int	num;
-
-	num = ft_atoi(*argv);
-	stack->content = num;
-	argv++;
-	if (stack->next)
-		return (add_content(stack->next, argv));
-}
-
 static void	print_stack(t_nlist	*stack)
 {
 	ft_printf("[%d]", stack->content);
@@ -101,24 +48,31 @@ static void	print_stack(t_nlist	*stack)
 		ft_putstr("\n");
 }
 
-/* ✚ Ie muden maoeken nywe fynktionen foar ten yebroik fan */
-/* thie nlist type. Klaor yetan [✓] ✚  */
-static t_nlist	*gen_stack(int stack_size)
+static void		string_to_list(t_nlist *list, )
+{
+
+}
+
+static t_nlist	*gen_stack(char	**content)
 {
 	t_nlist	*first_element;
 	t_nlist	*new_element;
-	int		iter;
 
-	iter = 0;
 	first_element = NULL;
 	new_element = NULL;
-	while (iter < stack_size)
+	while (content != NULL)
 	{
-		new_element = ft_nlstnew(0);
-		if (!new_element)
-			ft_nlstclear(&first_element, &free);
-		ft_nlstadd_back(&first_element, new_element);
-		iter++;
+		if (ft_strchr(*content, ' '))
+		{
+			string_to_list(first_element, *content);
+		}
+		else
+		{
+			new_element = ft_nlstnew(0);
+			if (!new_element)
+				ft_nlstclear(&first_element, &free);
+			ft_nlstadd_back(&first_element, new_element);
+		}
 	}
 	return (first_element);
 }
@@ -130,10 +84,8 @@ int	main(int argc, char *argv[])
 
 	if (argc < 2)
 		return (0);
-	count_nums(argv + 1);
-	stack_1 = gen_stack(argc - 1);
+	stack_1 = gen_stack(argv + 1);
 	/* stack_2 = gen_stack(argc - 1); */
-	add_content(stack_1, argv + 1);
 	print_stack(stack_1);
 	sort_two(stack_1);
 }
