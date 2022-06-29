@@ -39,14 +39,20 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
-static int	str_numcount(char *str)
+static char	**input_processing(int count, char **input)
 {
-	int	count;
-	int	iter;
+	int		iterator;
+	int		iterator_2;
+	char	*tmp_str;
+	char	*tmp_str_2;
 
-	count = 0;
-	iter = 0;
+	iterator = count;
+	iterator_2 = 0;
+	while (iterator > 1)
+	{
+		tmp_str = ft_strjoin(input[iterator_2], input[iterator_2 + 1]);
 
+	}
 }
 
 static int	count_nums(char **argv)
