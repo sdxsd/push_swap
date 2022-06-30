@@ -52,23 +52,18 @@ static t_nlist	*value_chk(t_nlist *stack, int value)
 static int	chk_duplicates(t_nlist *stack)
 {
 	int		lsize;
-	int		iter;
-	int		value;
 	t_nlist	*ret;
 	t_nlist	*index;
 
-	iter = 0;
 	index = stack;
 	lsize = ft_lstsize((t_list *)stack);
-	while(iter < lsize)
+	while (lsize-- > 0)
 	{
-		value = index->content;
-		ret = value_chk(stack, value);
+		ret = value_chk(stack, index->content);
 		if (ret == index || ret == NULL)
 			index = index->next;
 		else
 			return (FALSE);
-		iter++;
 	}
 	return (TRUE);
 }
