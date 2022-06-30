@@ -63,12 +63,12 @@ static int	chk_duplicates(t_nlist *stack)
 	while(iter < lsize)
 	{
 		value = index->content;
-		ret = value_chk(index, value);
+		ret = value_chk(stack, value);
 		if (ret == index || ret == NULL)
 			index = index->next;
 		else
 			return (FALSE);
-
+		iter++;
 	}
 	return (TRUE);
 }
@@ -94,6 +94,11 @@ int	main(int argc, char *argv[])
 		ft_putstr("Error\n");
 		return (-1);
 	}
-	print_stack(stack_1);
+	if (!chk_duplicates(stack_1))
+	{
+		ft_putstr("Error\n");
+		return (-1);
+	}
 	sort_two(stack_1);
+	print_stack(stack_1);
 }
