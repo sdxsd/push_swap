@@ -44,7 +44,7 @@ static t_nlist	*value_chk(t_nlist *stack, int value)
 	if (stack->content == value)
 		return (stack);
 	else if (stack->next != NULL)
-		return (value_chk(stack, value));
+		return (value_chk(stack->next, value));
 	else
 		return (NULL);
 }
@@ -54,6 +54,7 @@ static int	chk_duplicates(t_nlist *stack)
 	int		lsize;
 	int		iter;
 	int		value;
+	t_nlist	*ret;
 	t_nlist	*index;
 
 	iter = 0;
@@ -62,7 +63,12 @@ static int	chk_duplicates(t_nlist *stack)
 	while(iter < lsize)
 	{
 		value = index->content;
-		while (stack->content != value)
+		ret = value_chk(index, value);
+		if (ret == index || ret == NULL)
+			index = index->next;
+		else
+			return (FALSE);
+
 	}
 	return (TRUE);
 }
