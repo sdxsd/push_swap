@@ -79,7 +79,7 @@ static void	print_stack(t_nlist	*stack)
 
 static void	err_exit(int value, char *str)
 {
-	ft_putstr("Error\n");
+	ft_putstr(str);
 	exit (value);
 }
 
@@ -93,7 +93,7 @@ int	main(int argc, char *argv[])
 	if (!stack_1)
 		err_exit(0, "Error\n");
 	if (!chk_duplicates(stack_1))
-		err_exit(0, "Error\n");
+		err_exit(-1, "Error\n");
 	sort_two(stack_1);
 	print_stack(stack_1);
 }
