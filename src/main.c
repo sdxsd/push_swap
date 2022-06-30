@@ -39,6 +39,16 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
+static t_nlist	*value_chk(t_nlist *stack, int value)
+{
+	if (stack->content == value)
+		return (stack);
+	else if (stack->next != NULL)
+		return (value_chk(stack, value));
+	else
+		return (NULL);
+}
+
 static int	chk_duplicates(t_nlist *stack)
 {
 	int		lsize;
@@ -46,11 +56,13 @@ static int	chk_duplicates(t_nlist *stack)
 	int		value;
 	t_nlist	*index;
 
+	iter = 0;
 	index = stack;
 	lsize = ft_lstsize((t_list *)stack);
 	while(iter < lsize)
 	{
-
+		value = index->content;
+		while (stack->content != value)
 	}
 	return (TRUE);
 }
