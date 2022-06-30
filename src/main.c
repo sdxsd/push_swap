@@ -77,6 +77,12 @@ static void	print_stack(t_nlist	*stack)
 		ft_putstr("\n");
 }
 
+static void	err_exit(int value, char *str)
+{
+	ft_putstr("Error\n");
+	exit (value);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_nlist	*stack_1;
@@ -85,15 +91,9 @@ int	main(int argc, char *argv[])
 		return (0);
 	stack_1 = gen_stack(argv + 1);
 	if (!stack_1)
-	{
-		ft_putstr("Error\n");
-		return (-1);
-	}
+		err_exit(0, "Error\n");
 	if (!chk_duplicates(stack_1))
-	{
-		ft_putstr("Error\n");
-		return (-1);
-	}
+		err_exit(0, "Error\n");
 	sort_two(stack_1);
 	print_stack(stack_1);
 }
