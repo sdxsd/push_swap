@@ -46,7 +46,7 @@ t_nlist	*find_smallest(t_nlist *list)
 	int		last_smallest;
 	t_nlist	*smallest;
 
-	last_smallest = INT_MIN;
+	last_smallest = INT_MAX;
 	if (!list)
 		return (0);
 	while (TRUE)

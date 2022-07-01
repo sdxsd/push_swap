@@ -68,7 +68,10 @@ int		push(t_nlist *from, t_nlist *to);
 
 /* MISC FUNCTIONS  */
 void	shuffle(t_nlist *up);
+
+/* FIND FUNCTIONS */
 t_nlist	*find_largest(t_nlist *list);
+t_nlist	*find_smallest(t_nlist *list);
 
 /* SWAP FUNCTIONS */
 void	swap(t_nlist *head);
