@@ -13,7 +13,7 @@ CFILES = \
 		src/push.c \
 		src/rotate.c \
 		src/sort_small.c \
-		src/find.c \
+		src/flatten.c \
 		src/list.c \
 		src/input.c \
 		src/swap.c

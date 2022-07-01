@@ -86,8 +86,6 @@ static void	err_exit(int value, char *str)
 int	main(int argc, char *argv[])
 {
 	t_nlist	*stack_1;
-	t_nlist	*smallest;
-	t_nlist	*largest;
 
 	if (argc < 2)
 		return (0);
@@ -96,10 +94,5 @@ int	main(int argc, char *argv[])
 		err_exit(0, "Error\n");
 	if (!chk_duplicates(stack_1))
 		err_exit(-1, "Error\n");
-	sort_two(stack_1);
-	largest = find_largest(stack_1);
-	smallest = find_smallest(stack_1);
-	ft_printf("Largest: %d\n", largest->content);
-	ft_printf("Smallest: %d\n", smallest->content);
 	print_stack(stack_1);
 }

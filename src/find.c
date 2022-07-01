@@ -40,6 +40,20 @@ A program is free software if users have all of these freedoms.
 #include "../include/push_swap.h"
 #include <limits.h>
 
+int	flatten_nums(t_nlist *list)
+{
+	static int	index;
+	t_nlist		*smallest;
+
+	smallest = find_smallest(list);
+	smallest->content = index;
+	index++;
+	if (list->next)
+		return (flatten_nums(list->next));
+	else
+		return (index = 0);
+}
+
 /* Returns the position of the smallest integer in the list. */
 t_nlist	*find_smallest(t_nlist *list)
 {
