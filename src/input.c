@@ -37,44 +37,56 @@ The definition of Free Software is as follows:
 A program is free software if users have all of these freedoms.
 */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "../libft/libft.h"
-# include <stdlib.h>
+#include "../include/push_swap.h"
 
-/* ✚ Myn lyst fur ten yebroik inse ten push_swap proyyrama ✚ */
-typedef struct s_num_list {
-	int					content;
-	struct s_num_list	*next;
-}	t_nlist;
+t_nlist	*string_to_list(t_nlist *list, char *content)
+{
+	char	**content_array;
+	t_nlist	*sublist;
 
-/* LIST FUNCTIONS */
-t_nlist	*ft_nlstnew(int content);
-void	ft_nlstclear(t_nlist **lst, void (*del)(void*));
-void	ft_nlstadd_back(t_nlist **lst, t_nlist *new);
-t_nlist	*ft_nlstlast(t_nlist *lst);
+	content_array = ft_split(content, ' ');
+	if (!content_array)
+		return (NULL);
+	sublist = gen_stack(content_array);
+	ft_nlstadd_back(&list, sublist);
+	return (list);
+}
 
-/* INPUT FUNCTIONS */
-t_nlist	*gen_stack(char	**content);
-t_nlist	*string_to_list(t_nlist *list, char *content);
-int		invalid_char_filter(char *to_check);
+int	invalid_char_filter(char *to_check)
+{
+	while (*to_check != '\0')
+	{
+		if (!ft_isdigit(*to_check) && *to_check != ' ' && *to_check != '-')
+			return (FALSE);
+		to_check++;
+	}
+	return (TRUE);
+}
 
-/* ROTATE FUNCTIONS */
-void	rotate(t_nlist *up);
-void	rr(t_nlist *a, t_nlist *b);
+t_nlist	*gen_stack(char	**content)
+{
+	t_nlist	*first_element;
+	t_nlist	*new_element;
 
-/* PUSH FUNCTIONS */
-int		push(t_nlist *from, t_nlist *to);
-
-/* MISC FUNCTIONS  */
-void	shuffle(t_nlist *up);
-t_nlist	*find_largest(t_nlist *list);
-
-/* SWAP FUNCTIONS */
-void	swap(t_nlist *head);
-void	ss(t_nlist *a, t_nlist *b);
-
-/* SMALL SORTING FUNCTIONS */
-void	sort_two(t_nlist *list);
-
-#endif // PUSH_SWAP_H
+	first_element = NULL;
+	new_element = NULL;
+	while (*content != NULL)
+	{
+		if (!invalid_char_filter(*content))
+			return (NULL);
+		if (ft_strchr(*content, ' '))
+		{
+			string_to_list(first_element, *content);
+			content++;
+		}
+		else
+		{
+			new_element = ft_nlstnew(ft_atoi(*content));
+			if (!new_element)
+				ft_nlstclear(&first_element, &free);
+			ft_nlstadd_back(&first_element, new_element);
+			content++;
+		}
+	}
+	return (first_element);
+}

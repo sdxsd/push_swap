@@ -40,14 +40,36 @@ A program is free software if users have all of these freedoms.
 #include "../include/push_swap.h"
 #include <limits.h>
 
-// Returns the position of the largest integer within the list.
-int	find_largest(t_nlist *list)
+/* Returns the position of the smallest integer in the list. */
+t_nlist	*find_smallest(t_nlist *list)
 {
-	int	last_largest;
-	int	last_largest_pos;
-	int	index;
+	int		last_smallest;
+	t_nlist	*smallest;
 
-	index = 1;
+	last_smallest = INT_MIN;
+	if (!list)
+		return (0);
+	while (TRUE)
+	{
+		if (list->content < last_smallest)
+		{
+			last_smallest = list->content;
+			smallest = list;
+		}
+		if (list->next)
+			list = list->next;
+		else
+			break ;
+	}
+	return (smallest);
+}
+
+/* Returns the position of the largest integer within the list. */
+t_nlist	*find_largest(t_nlist *list)
+{
+	int		last_largest;
+	t_nlist	*largest;
+
 	last_largest = INT_MIN;
 	if (!list)
 		return (0);
@@ -56,11 +78,12 @@ int	find_largest(t_nlist *list)
 		if (list->content > last_largest)
 		{
 			last_largest = list->content;
-			last_largest_pos = index;
+			largest = list;
 		}
 		if (list->next)
 			list = list->next;
-		index++;
+		else
+			break ;
 	}
-	return (last_largest_pos);
+	return (largest);
 }
