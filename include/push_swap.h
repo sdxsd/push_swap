@@ -41,9 +41,11 @@ A program is free software if users have all of these freedoms.
 # define PUSH_SWAP_H
 # include "../libft/libft.h"
 # include <stdlib.h>
+# include <stdbool.h>
 
 /* ✚ Myn lyst fur ten yebroik inse ten push_swap proyyrama ✚ */
 typedef struct s_num_list {
+	bool				flattened;
 	int					content;
 	struct s_num_list	*next;
 }	t_nlist;

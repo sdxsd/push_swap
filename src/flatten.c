@@ -48,9 +48,10 @@ int	flatten_nums(t_nlist *list)
 
 	smallest = find_smallest(list);
 	smallest->content = index;
+	smallest->flattened = TRUE;
 	index++;
 	if (index != ft_lstsize((t_list *)list) && list->next)
-		return (flatten_nums(list->next));
+		return (flatten_nums(list));
 	else
 		return (index = 0);
 }
@@ -66,7 +67,7 @@ t_nlist	*find_smallest(t_nlist *list)
 		return (0);
 	while (TRUE)
 	{
-		if (list->content < last_smallest)
+		if (list->content < last_smallest && !list->flattened)
 		{
 			last_smallest = list->content;
 			smallest = list;

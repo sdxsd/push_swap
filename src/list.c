@@ -47,8 +47,9 @@ t_nlist	*ft_nlstnew(int content)
 	element = malloc(sizeof(t_nlist));
 	if (!element)
 		return (NULL);
-	element -> content = content;
-	element -> next = NULL;
+	element->flattened = FALSE;
+	element->content = content;
+	element->next = NULL;
 	return (element);
 }
 
