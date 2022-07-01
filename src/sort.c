@@ -39,62 +39,7 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
-static t_nlist	*value_chk(t_nlist *stack, int value)
+int	radix_sort(t_nlist *list)
 {
-	if (stack->content == value)
-		return (stack);
-	else if (stack->next != NULL)
-		return (value_chk(stack->next, value));
-	else
-		return (NULL);
-}
 
-static int	chk_duplicates(t_nlist *stack)
-{
-	int		lsize;
-	t_nlist	*ret;
-	t_nlist	*index;
-
-	index = stack;
-	lsize = ft_lstsize((t_list *)stack);
-	while (lsize-- > 0)
-	{
-		ret = value_chk(stack, index->content);
-		if (ret == index || ret == NULL)
-			index = index->next;
-		else
-			return (FALSE);
-	}
-	return (TRUE);
-}
-
-static void	print_stack(t_nlist	*stack)
-{
-	ft_printf("[%d]", stack->content);
-	if (stack->next)
-		return (print_stack(stack->next));
-	else
-		ft_putstr("\n");
-}
-
-static void	err_exit(int value, char *str)
-{
-	ft_putstr(str);
-	exit (value);
-}
-
-int	main(int argc, char *argv[])
-{
-	t_nlist	*stack_1;
-
-	if (argc < 2)
-		return (0);
-	stack_1 = gen_stack(argv + 1);
-	if (!stack_1)
-		err_exit(0, "Error\n");
-	if (!chk_duplicates(stack_1))
-		err_exit(-1, "Error\n");
-	flatten_nums(stack_1);
-	print_stack(stack_1);
-	ft_printf("%d\n", stack_1->content >> 1);
 }
