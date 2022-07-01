@@ -94,5 +94,6 @@ int	main(int argc, char *argv[])
 		err_exit(0, "Error\n");
 	if (!chk_duplicates(stack_1))
 		err_exit(-1, "Error\n");
+	flatten_nums(stack_1);
 	print_stack(stack_1);
 }
