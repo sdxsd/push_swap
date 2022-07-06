@@ -45,7 +45,6 @@ int	radix_sort(t_nlist *list_a, t_nlist *list_b, int size, int largest_int)
 	int			bit_index;
 	int			iter;
 	int			tmp;
-	t_nlist		*index;
 
 	bit_count = 0;
 	bit_index = 0;
@@ -53,7 +52,6 @@ int	radix_sort(t_nlist *list_a, t_nlist *list_b, int size, int largest_int)
 		bit_count++;
 	while (bit_index < bit_count)
 	{
-		index = list_a;
 		iter = 0;
 		while (iter < size)
 		{
@@ -61,21 +59,21 @@ int	radix_sort(t_nlist *list_a, t_nlist *list_b, int size, int largest_int)
 			if (((tmp >> bit_index) & 1) == 1)
 			{
 				rotate(list_a);
-				index = index->next;
 				ft_putstr("ra\n");
 			}
 			else
 			{
 				push(&list_a, &list_b);
-				index = list_a;
 				ft_putstr("pb\n");
 			}
 			iter++;
 		}
 		bit_index++;
 		while (list_b)
+		{
 			push(&list_b, &list_a);
-		ft_putstr("pa\n");
+			ft_putstr("pa\n");
+		}
 	}
 	return (0);
 }

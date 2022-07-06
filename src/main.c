@@ -100,5 +100,4 @@ int	main(int argc, char *argv[])
 	flatten_nums(stack_1);
 	largest = find_largest(stack_1);
 	radix_sort(stack_1, stack_2, ft_lstsize((t_list *)stack_1), largest->content);
-	/* print_stack(stack_1); */
 }
