@@ -55,6 +55,7 @@ t_nlist	*ft_nlstnew(int content);
 void	ft_nlstclear(t_nlist **lst, void (*del)(void*));
 void	ft_nlstadd_back(t_nlist **lst, t_nlist *new);
 t_nlist	*ft_nlstlast(t_nlist *lst);
+void	ft_nlstadd_front(t_list **lst, t_list *new);
 
 /* INPUT FUNCTIONS */
 t_nlist	*gen_stack(char	**content);
@@ -66,7 +67,7 @@ void	rotate(t_nlist *up);
 void	rr(t_nlist *a, t_nlist *b);
 
 /* PUSH FUNCTIONS */
-int		push(t_nlist *from, t_nlist *to);
+int		push(t_nlist **from, t_nlist **to);
 
 /* MISC FUNCTIONS  */
 void	shuffle(t_nlist *up);
@@ -80,7 +81,8 @@ int		flatten_nums(t_nlist *list);
 void	swap(t_nlist *head);
 void	ss(t_nlist *a, t_nlist *b);
 
-/* SMALL SORTING FUNCTIONS */
+/* SORTING FUNCTIONS */
 void	sort_two(t_nlist *list);
+int		radix_sort(t_nlist *list_a, t_nlist *list_b, int size, int largest_int);
 
 #endif // PUSH_SWAP_H

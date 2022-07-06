@@ -86,15 +86,19 @@ static void	err_exit(int value, char *str)
 int	main(int argc, char *argv[])
 {
 	t_nlist	*stack_1;
+	t_nlist	*stack_2;
+	t_nlist	*largest;
 
 	if (argc < 2)
 		return (0);
 	stack_1 = gen_stack(argv + 1);
+	stack_2 = NULL;
 	if (!stack_1)
 		err_exit(0, "Error\n");
 	if (!chk_duplicates(stack_1))
 		err_exit(-1, "Error\n");
 	flatten_nums(stack_1);
+	largest = find_largest(stack_1);
+	radix_sort(stack_1, stack_2, ft_lstsize((t_list *)stack_1), largest->content);
 	print_stack(stack_1);
-	ft_printf("%d\n", stack_1->content >> 1);
 }

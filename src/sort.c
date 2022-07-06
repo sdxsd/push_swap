@@ -61,18 +61,20 @@ int	radix_sort(t_nlist *list_a, t_nlist *list_b, int size, int largest_int)
 			if (((tmp >> bit_index) & 1) == 1)
 			{
 				rotate(list_a);
+				index = index->next;
 				ft_putstr("ra\n");
 			}
 			else
 			{
-				push(list_a, list_b);
+				push(&list_a, &list_b);
+				index = list_a;
 				ft_putstr("pb\n");
 			}
-			index = index->next;
 			iter++;
 		}
 		bit_index++;
-		push(list_b, list_a);
+		while (list_b)
+			push(&list_b, &list_a);
 		ft_putstr("pa\n");
 	}
 	return (0);
