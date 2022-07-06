@@ -68,14 +68,14 @@ static int	chk_duplicates(t_nlist *stack)
 	return (TRUE);
 }
 
-static void	print_stack(t_nlist	*stack)
-{
-	ft_printf("[%d]", stack->content);
-	if (stack->next)
-		return (print_stack(stack->next));
-	else
-		ft_putstr("\n");
-}
+/* static void	print_stack(t_nlist	*stack) */
+/* { */
+/* 	ft_printf("[%d]", stack->content); */
+/* 	if (stack->next) */
+/* 		return (print_stack(stack->next)); */
+/* 	else */
+/* 		ft_putstr("\n"); */
+/* } */
 
 static void	err_exit(int value, char *str)
 {
@@ -100,5 +100,5 @@ int	main(int argc, char *argv[])
 	flatten_nums(stack_1);
 	largest = find_largest(stack_1);
 	radix_sort(stack_1, stack_2, ft_lstsize((t_list *)stack_1), largest->content);
-	print_stack(stack_1);
+	/* print_stack(stack_1); */
 }
