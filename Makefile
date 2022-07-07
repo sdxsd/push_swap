@@ -30,7 +30,7 @@ $(NAME): $(OFILES) $(LIB)
 	@echo COMPILED: $<
 
 $(LIB):
-	@make -C libft/
+	@make bonus -C libft/
 
 re: fclean all
 
