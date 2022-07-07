@@ -83,6 +83,6 @@ void	ss(t_nlist *a, t_nlist *b);
 
 /* SORTING FUNCTIONS */
 void	sort_two(t_nlist *list);
-int		radix_sort(t_nlist *list_a, t_nlist *list_b, int size, int largest_int);
+void	radix_sort(t_nlist *list_a, t_nlist *list_b, int size, int largest_int);
 
 #endif // PUSH_SWAP_H

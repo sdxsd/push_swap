@@ -40,6 +40,11 @@ A program is free software if users have all of these freedoms.
 #include "../include/push_swap.h"
 
 /* pa & pb */
+/* This function works by adding the element 'from' */
+/* to the list 'to' and then moves the value of from to the next */
+/* link in the list. */
+/* If 'to' is null, then 'from' becomes the first */
+/* link in 'to' and */
 int	push(t_nlist **from, t_nlist **to)
 {
 	t_nlist	*ptr;

@@ -38,6 +38,7 @@ A program is free software if users have all of these freedoms.
 */
 
 #include "../include/push_swap.h"
+#include <unistd.h>
 
 static t_nlist	*value_chk(t_nlist *stack, int value)
 {
@@ -68,18 +69,9 @@ static int	chk_duplicates(t_nlist *stack)
 	return (TRUE);
 }
 
-/* static void	print_stack(t_nlist	*stack) */
-/* { */
-/* 	ft_printf("[%d]", stack->content); */
-/* 	if (stack->next) */
-/* 		return (print_stack(stack->next)); */
-/* 	else */
-/* 		ft_putstr("\n"); */
-/* } */
-
 static void	err_exit(int value, char *str)
 {
-	ft_putstr(str);
+	write(STDERR_FILENO, str, sizeof(str));
 	exit (value);
 }
 
