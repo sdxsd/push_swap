@@ -55,9 +55,24 @@ void	rotate(t_nlist *up)
 		return ;
 }
 
-/* Simple wrapper.  */
+/* Simple wrapper. */
+void	ra(t_nlist *up)
+{
+	rotate(up);
+	ft_putstr("ra\n");
+}
+
+/* Simple wrapper. */
+void	rb(t_nlist *up)
+{
+	rotate(up);
+	ft_putstr("rb\n");
+}
+
+/* Simple wrapper. */
 void	rr(t_nlist *a, t_nlist *b)
 {
 	rotate(a);
 	rotate(b);
+	ft_putstr("rr\n");
 }

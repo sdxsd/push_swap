@@ -50,27 +50,20 @@ void	radix_sort(t_nlist *list_a, t_nlist *list_b, int size, int largest_int)
 	bit_index = 0;
 	while ((largest_int >> bit_count) != 0)
 		bit_count++;
-	while (bit_index++ < bit_count)
+	while (bit_index < bit_count)
 	{
 		iter = 0;
-		while (iter++ < size)
+		while (iter < size)
 		{
 			tmp = list_a->content;
 			if (((tmp >> bit_index) & 1) == 1)
-			{
-				rotate(list_a);
-				ft_putstr("ra\n");
-			}
+				ra(list_a);
 			else
-			{
-				push(&list_a, &list_b);
-				ft_putstr("pb\n");
-			}
+				pb(&list_a, &list_b);
+			iter++;
 		}
 		while (list_b)
-		{
-			push(&list_b, &list_a);
-			ft_putstr("pa\n");
-		}
+			pa(&list_b, &list_a);
+		bit_index++;
 	}
 }

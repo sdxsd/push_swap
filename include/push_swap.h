@@ -65,9 +65,13 @@ int		invalid_char_filter(char *to_check);
 /* ROTATE FUNCTIONS */
 void	rotate(t_nlist *up);
 void	rr(t_nlist *a, t_nlist *b);
+void	ra(t_nlist *up);
+void	rb(t_nlist *up);
 
 /* PUSH FUNCTIONS */
-int		push(t_nlist **from, t_nlist **to);
+void	push(t_nlist **from, t_nlist **to);
+void	pa(t_nlist **from, t_nlist **to);
+void	pb(t_nlist **from, t_nlist **to);
 
 /* MISC FUNCTIONS  */
 void	shuffle(t_nlist *up);

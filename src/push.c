@@ -45,7 +45,7 @@ A program is free software if users have all of these freedoms.
 /* link in the list. */
 /* If 'to' is null, then 'from' becomes the first */
 /* link in 'to' and */
-int	push(t_nlist **from, t_nlist **to)
+void	push(t_nlist **from, t_nlist **to)
 {
 	t_nlist	*ptr;
 
@@ -53,5 +53,16 @@ int	push(t_nlist **from, t_nlist **to)
 	ptr = ptr->next;
 	ft_lstadd_front((t_list **)to, (t_list *)*from);
 	*from = ptr;
-	return (1);
+}
+
+void	pa(t_nlist **from, t_nlist **to)
+{
+	push(from, to);
+	ft_putstr("pa\n");
+}
+
+void	pb(t_nlist **from, t_nlist **to)
+{
+	push(from, to);
+	ft_putstr("pb\n");
 }
