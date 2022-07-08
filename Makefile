@@ -5,7 +5,7 @@
 # @version 0.1
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 LIB = libft/libft.a
 CFILES = \
@@ -36,6 +36,7 @@ re: fclean all
 
 fclean: clean
 	@rm -f $(NAME)
+	@make clean -C libft/
 	@echo "DEEP CLEANING"
 
 clean:

@@ -100,4 +100,6 @@ int	main(int argc, char *argv[])
 	flatten_nums(a);
 	largest = find_largest(a);
 	radix_sort(a, b, ft_lstsize((t_list *)a), largest->content);
+	ft_nlstclear(&a, free);
+	ft_nlstclear(&b, free);
 }
