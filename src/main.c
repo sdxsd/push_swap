@@ -50,6 +50,20 @@ static t_nlist	*value_chk(t_nlist *stack, int value)
 		return (NULL);
 }
 
+static int	chk_sorted(t_nlist *stack)
+{
+	int	value;
+
+	value = stack->content;
+
+	if (!stack->next)
+		return (TRUE);
+	if (value > stack->next->content)
+		return (FALSE);
+	else
+		return (chk_sorted(stack->next));
+}
+
 static int	chk_duplicates(t_nlist *stack)
 {
 	int		lsize;
