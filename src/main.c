@@ -91,12 +91,16 @@ int	main(int argc, char *argv[])
 	t_nlist	*b;
 	t_nlist	*largest;
 
-	if (argc < 2)
+	if (argc < 3)
 		return (0);
 	a = gen_stack(argv + 1);
 	b = NULL;
 	if (!a || !chk_duplicates(a) || !chk_sorted(a))
 		err_exit(0, "Error\n");
+	if (ft_lstsize((t_list *)a) == 2)
+		sort_two(a);
+	if (ft_lstsize((t_list *)a) == 3)
+		sort_three(a);
 	flatten_nums(a);
 	largest = find_largest(a);
 	radix_sort(a, b, ft_lstsize((t_list *)a), largest->content);

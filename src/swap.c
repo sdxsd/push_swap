@@ -51,6 +51,18 @@ void	swap(t_nlist *head)
 	head->next->content = first;
 }
 
+void sa(t_nlist *head)
+{
+	swap(head);
+	ft_putstr("sa\n");
+}
+
+void sb(t_nlist *head)
+{
+	swap(head);
+	ft_putstr("sb\n");
+}
+
 /* Simple wrapper. */
 void	ss(t_nlist *a, t_nlist *b)
 {

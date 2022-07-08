@@ -42,18 +42,20 @@ A program is free software if users have all of these freedoms.
 void	sort_two(t_nlist *list)
 {
 	if (list->content > list->next->content)
-	{
-		ft_putstr("ra\n");
-		rotate(list);
-	}
+		ra(list);
+	exit(0);
 }
 
-/* void	sort_three(t_nlist *list) */
-/* { */
-/* 	if (find_largest(list) == 1) */
-/* 	{ */
-/* 		ft_putstr("ra\n"); */
-/* 		rotate(list); */
-/* 		if (*(long *)list->content) */
-/* 	} */
-/* } */
+void	sort_three(t_nlist *list)
+{
+	t_nlist	*largest;
+
+	largest = find_largest(list);
+	if (largest == list->next)
+		rra(list);
+	if (largest == list)
+		ra(list);
+	if (list->content > list->next->content)
+		sa(list);
+	exit (0);
+}
