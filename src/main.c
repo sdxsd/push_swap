@@ -52,14 +52,10 @@ static t_nlist	*value_chk(t_nlist *stack, int value)
 
 static int	chk_sorted(t_nlist *stack)
 {
-	int	value;
-
-	value = stack->content;
-
 	if (!stack->next)
-		return (TRUE);
-	if (value > stack->next->content)
 		return (FALSE);
+	if (stack->content > stack->next->content)
+		return (TRUE);
 	else
 		return (chk_sorted(stack->next));
 }
@@ -85,7 +81,7 @@ static int	chk_duplicates(t_nlist *stack)
 
 static void	err_exit(int value, char *str)
 {
-	write(STDERR_FILENO, str, sizeof(str));
+	write(STDERR_FILENO, str, ft_strlen(str));
 	exit (value);
 }
 
@@ -99,10 +95,8 @@ int	main(int argc, char *argv[])
 		return (0);
 	a = gen_stack(argv + 1);
 	b = NULL;
-	if (!a)
+	if (!a || !chk_duplicates(a) || !chk_sorted(a))
 		err_exit(0, "Error\n");
-	if (!chk_duplicates(a))
-		err_exit(-1, "Error\n");
 	flatten_nums(a);
 	largest = find_largest(a);
 	radix_sort(a, b, ft_lstsize((t_list *)a), largest->content);
