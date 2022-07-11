@@ -55,7 +55,7 @@ t_nlist	*ft_nlstnew(int content);
 void	ft_nlstclear(t_nlist **lst, void (*del)(void*));
 void	ft_nlstadd_back(t_nlist **lst, t_nlist *new);
 t_nlist	*ft_nlstlast(t_nlist *lst);
-void	ft_nlstadd_front(t_list **lst, t_list *new);
+void	ft_nlstadd_front(t_nlist **lst, t_nlist *new);
 
 /* INPUT FUNCTIONS */
 t_nlist	*gen_stack(char	**content);
@@ -67,6 +67,12 @@ void	rotate(t_nlist *up);
 void	rr(t_nlist *a, t_nlist *b);
 void	ra(t_nlist *up);
 void	rb(t_nlist *up);
+
+/* REVERSE ROTATE FUNCTIONS */
+void	reverse_rotate(t_nlist *list);
+void	rra(t_nlist *list);
+void	rrb(t_nlist *list);
+void	rrr(t_nlist *a, t_nlist *b);
 
 /* PUSH FUNCTIONS */
 void	push(t_nlist **from, t_nlist **to);

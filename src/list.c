@@ -93,7 +93,7 @@ void	ft_nlstadd_back(t_nlist **lst, t_nlist *new)
 	}
 }
 
-void	ft_nlstadd_front(t_list **lst, t_list *new)
+void	ft_nlstadd_front(t_nlist **lst, t_nlist *new)
 {
 	new -> next = *lst;
 	*lst = new;

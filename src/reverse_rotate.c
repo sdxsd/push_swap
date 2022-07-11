@@ -39,12 +39,21 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
-int	reverse_rotate(t_nlist *list)
+void	reverse_rotate(t_nlist *list)
 {
-	if (list->next)
-		list->content = reverse_rotate(list->next);
-	else
-		return (list->content);
+	t_nlist	*last;
+	t_nlist	*index;
+
+	last = ft_nlstlast(list);
+	ft_nlstadd_front(&list, last);
+	index = list->next;
+	while (index->next)
+	{
+		if (index->next == last)
+			index->next = NULL;
+		else
+			index = index->next;
+	}
 }
 
 void	rra(t_nlist *list)
@@ -61,5 +70,7 @@ void	rrb(t_nlist *list)
 
 void	rrr(t_nlist *a, t_nlist *b)
 {
-
+	reverse_rotate(a);
+	reverse_rotate(b);
+	ft_putstr("rrr\n");
 }
