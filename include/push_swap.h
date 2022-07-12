@@ -69,10 +69,10 @@ void	ra(t_nlist *up);
 void	rb(t_nlist *up);
 
 /* REVERSE ROTATE FUNCTIONS */
-void	reverse_rotate(t_nlist *list);
-void	rra(t_nlist *list);
-void	rrb(t_nlist *list);
-void	rrr(t_nlist *a, t_nlist *b);
+void	reverse_rotate(t_nlist **list);
+void	rra(t_nlist **list);
+void	rrb(t_nlist **list);
+void	rrr(t_nlist **a, t_nlist **b);
 
 /* PUSH FUNCTIONS */
 void	push(t_nlist **from, t_nlist **to);

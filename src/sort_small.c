@@ -39,6 +39,15 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
+/* static void	print_stack(t_nlist	*stack) */
+/* { */
+/* 	ft_printf("[%d]", stack->content); */
+/* 	if (stack->next) */
+/* 		return (print_stack(stack->next)); */
+/* 	else */
+/* 		ft_putstr("\n"); */
+/* } */
+
 void	sort_two(t_nlist *list)
 {
 	if (list->content > list->next->content)
@@ -52,10 +61,34 @@ void	sort_three(t_nlist *list)
 
 	largest = find_largest(list);
 	if (largest == list->next)
-		rra(list);
+		rra(&list);
 	if (largest == list)
 		ra(list);
 	if (list->content > list->next->content)
 		sa(list);
 	exit (0);
+}
+
+void	sort_four(t_nlist *a, t_nlist *b)
+{
+	int	iter;
+
+	iter = 0;
+	while (iter < 2)
+	{
+		while (a != find_smallest(a))
+			ra(a);
+		pb(&a, &b);
+	}
+	if (b->content < b->next->content)
+		rb(b);
+	sort_three(a);
+	pa(&b, &a);
+	pa(&b, &a);
+	exit (0);
+}
+
+void	sort_five(t_nlist *list)
+{
+
 }

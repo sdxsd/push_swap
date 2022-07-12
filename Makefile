@@ -12,6 +12,7 @@ CFILES = \
 		src/main.c \
 		src/push.c \
 		src/rotate.c \
+		src/reverse_rotate.c \
 		src/sort_small.c \
 		src/flatten.c \
 		src/list.c \
