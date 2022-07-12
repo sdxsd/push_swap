@@ -101,6 +101,10 @@ int	main(int argc, char *argv[])
 		sort_two(a);
 	if (ft_lstsize((t_list *)a) == 3)
 		sort_three(a);
+	if (ft_lstsize((t_list *)a) == 4)
+		sort_four(a, b);
+	if (ft_lstsize((t_list *)a) == 5)
+		sort_five(a, b);
 	flatten_nums(a);
 	largest = find_largest(a);
 	radix_sort(a, b, ft_lstsize((t_list *)a), largest->content);

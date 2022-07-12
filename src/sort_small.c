@@ -66,7 +66,6 @@ void	sort_three(t_nlist *list)
 		ra(list);
 	if (list->content > list->next->content)
 		sa(list);
-	exit (0);
 }
 
 void	sort_four(t_nlist *a, t_nlist *b)
@@ -86,9 +85,12 @@ void	sort_five(t_nlist *a, t_nlist *b)
 	iter = 0;
 	while (iter < 2)
 	{
+		if (find_smallest(a) == (t_nlist *)ft_lstlast((t_list *)a))
+			rra(&a);
 		while (a != find_smallest(a))
 			ra(a);
 		pb(&a, &b);
+		iter++;
 	}
 	if (b->content < b->next->content)
 		rb(b);
