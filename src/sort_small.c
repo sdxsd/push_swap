@@ -71,6 +71,16 @@ void	sort_three(t_nlist *list)
 
 void	sort_four(t_nlist *a, t_nlist *b)
 {
+	while (a != find_smallest(a))
+		ra(a);
+	pb(&a, &b);
+	sort_three(a);
+	pa(&b, &a);
+	exit (0);
+}
+
+void	sort_five(t_nlist *list)
+{
 	int	iter;
 
 	iter = 0;
@@ -86,9 +96,4 @@ void	sort_four(t_nlist *a, t_nlist *b)
 	pa(&b, &a);
 	pa(&b, &a);
 	exit (0);
-}
-
-void	sort_five(t_nlist *list)
-{
-
 }
