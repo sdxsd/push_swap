@@ -79,7 +79,7 @@ void	sort_four(t_nlist *a, t_nlist *b)
 	exit (0);
 }
 
-void	sort_five(t_nlist *list)
+void	sort_five(t_nlist *a, t_nlist *b)
 {
 	int	iter;
 
