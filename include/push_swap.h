@@ -94,6 +94,7 @@ void	sb(t_nlist *head);
 void	ss(t_nlist *a, t_nlist *b);
 
 /* SORTING FUNCTIONS */
+void	sort_small(t_nlist *a, t_nlist *b);
 void	sort_two(t_nlist *list);
 void	sort_three(t_nlist *list);
 void	sort_four(t_nlist *a, t_nlist *b);
