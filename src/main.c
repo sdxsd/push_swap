@@ -97,17 +97,14 @@ int	main(int argc, char *argv[])
 	b = NULL;
 	if (!a || !chk_duplicates(a) || !chk_sorted(a))
 		err_exit(0, "Error\n");
-	if (ft_lstsize((t_list *)a) == 2)
-		sort_two(a);
-	if (ft_lstsize((t_list *)a) == 3)
-		sort_three(a);
-	if (ft_lstsize((t_list *)a) == 4)
-		sort_four(a, b);
-	if (ft_lstsize((t_list *)a) == 5)
-		sort_five(a, b);
-	flatten_nums(a);
-	largest = find_largest(a);
-	radix_sort(a, b, ft_lstsize((t_list *)a), largest->content);
+	if (ft_lstsize((t_list *)a) < 6)
+		sort_small(a, b);
+	else
+	{
+		flatten_nums(a);
+		largest = find_largest(a);
+		radix_sort(a, b, ft_lstsize((t_list *)a), largest->content);
+	}
 	ft_nlstclear(&a, free);
 	ft_nlstclear(&b, free);
 }

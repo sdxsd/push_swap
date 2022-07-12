@@ -50,9 +50,7 @@ A program is free software if users have all of these freedoms.
 
 void	sort_two(t_nlist *list)
 {
-	if (list->content > list->next->content)
-		ra(list);
-	exit(0);
+	ra(list);
 }
 
 void	sort_three(t_nlist *list)
@@ -77,7 +75,6 @@ void	sort_four(t_nlist *a, t_nlist *b)
 	pb(&a, &b);
 	sort_three(a);
 	pa(&b, &a);
-	exit (0);
 }
 
 void	sort_five(t_nlist *a, t_nlist *b)
@@ -99,5 +96,16 @@ void	sort_five(t_nlist *a, t_nlist *b)
 	sort_three(a);
 	pa(&b, &a);
 	pa(&b, &a);
-	exit (0);
+}
+
+void	sort_small(t_nlist *a, t_nlist *b)
+{
+	if (ft_lstsize((t_list *)a) == 2)
+		sort_two(a);
+	if (ft_lstsize((t_list *)a) == 3)
+		sort_three(a);
+	if (ft_lstsize((t_list *)a) == 4)
+		sort_four(a, b);
+	if (ft_lstsize((t_list *)a) == 5)
+		sort_five(a, b);
 }
