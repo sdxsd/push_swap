@@ -51,13 +51,13 @@ void	swap(t_nlist *head)
 	head->next->content = first;
 }
 
-void sa(t_nlist *head)
+void	sa(t_nlist *head)
 {
 	swap(head);
 	ft_putstr("sa\n");
 }
 
-void sb(t_nlist *head)
+void	sb(t_nlist *head)
 {
 	swap(head);
 	ft_putstr("sb\n");

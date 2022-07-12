@@ -70,6 +70,8 @@ void	sort_three(t_nlist *list)
 
 void	sort_four(t_nlist *a, t_nlist *b)
 {
+	if (find_smallest(a) == (t_nlist *)ft_lstlast((t_list *)a))
+		rra(&a);
 	while (a != find_smallest(a))
 		ra(a);
 	pb(&a, &b);
