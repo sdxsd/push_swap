@@ -91,8 +91,10 @@ int	main(int argc, char *argv[])
 	t_nlist	*b;
 	t_nlist	*largest;
 
-	if (argc < 3)
+	if (argc < 1)
 		return (0);
+	if (!chk_argv(argv + 1))
+		err_exit(0, "Error\n");
 	a = gen_stack(argv + 1);
 	b = NULL;
 	if (!a || !chk_duplicates(a))

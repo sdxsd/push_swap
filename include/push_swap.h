@@ -60,6 +60,7 @@ void	ft_nlstadd_front(t_nlist **lst, t_nlist *new);
 /* INPUT FUNCTIONS */
 t_nlist	*gen_stack(char	**content);
 t_nlist	*string_to_list(t_nlist *list, char *content);
+int		chk_argv(char **argv);
 
 /* ROTATE FUNCTIONS */
 void	rotate(t_nlist *up);

@@ -40,7 +40,7 @@ A program is free software if users have all of these freedoms.
 #include "../include/push_swap.h"
 
 
-int	chk_individual(char	*argv)
+static int	chk_individual(char	*argv)
 {
 	if (ft_strlen(argv) > 1 && argv[0] == '-')
 	{
@@ -59,7 +59,7 @@ int	chk_individual(char	*argv)
 	return (TRUE);
 }
 
-int	chk_list(char *argv)
+static int	chk_list(char *argv)
 {
 	char	**tmp_strarray;
 
@@ -71,7 +71,6 @@ int	chk_list(char *argv)
 		free(*tmp_strarray);
 		tmp_strarray++;
 	}
-	free(tmp_strarray);
 	return (TRUE);
 }
 
@@ -115,7 +114,10 @@ t_nlist	*gen_stack(char	**content)
 	{
 		if (ft_strchr(*content, ' '))
 		{
-			string_to_list(first_element, *content);
+			if (first_element == NULL)
+				first_element = string_to_list(first_element, *content);
+			else
+				string_to_list(first_element, *content);
 			content++;
 		}
 		else
