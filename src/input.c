@@ -39,7 +39,6 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
-
 static int	chk_individual(char	*argv)
 {
 	if (ft_strlen(argv) > 1 && argv[0] == '-')
@@ -84,7 +83,7 @@ int	chk_argv(char **argv)
 				return (FALSE);
 		}
 		else if (!chk_individual(*argv))
-				return (FALSE);
+			return (FALSE);
 		argv++;
 	}
 	return (TRUE);
