@@ -95,8 +95,10 @@ int	main(int argc, char *argv[])
 		return (0);
 	a = gen_stack(argv + 1);
 	b = NULL;
-	if (!a || !chk_duplicates(a) || !chk_sorted(a))
+	if (!a || !chk_duplicates(a))
 		err_exit(0, "Error\n");
+	if (!chk_sorted(a))
+		return (0);
 	if (ft_lstsize((t_list *)a) < 6)
 		sort_small(a, b);
 	else

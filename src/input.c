@@ -39,6 +39,44 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
+
+int	chk_individual(char	*argv)
+{
+
+}
+
+int	chk_list(char *argv)
+{
+	char	**tmp_strarray;
+
+	tmp_strarray = ft_split(argv, ' ');
+	while (*tmp_strarray)
+	{
+		if (!chk_individual(*tmp_strarray))
+			return (FALSE);
+		free(*tmp_strarray);
+		tmp_strarray++;
+	}
+	free(tmp_strarray);
+	return (TRUE);
+}
+
+int	chk_argv(char **argv)
+{
+	while (*argv)
+	{
+		if (ft_strchr(*argv, ' '))
+		{
+			if (!chk_list(*argv))
+				return (FALSE);
+		}
+		else if (!chk_individual(*argv))
+				return (FALSE);
+		argv++;
+	}
+	return (TRUE);
+}
+
 t_nlist	*string_to_list(t_nlist *list, char *content)
 {
 	char	**content_array;
@@ -52,17 +90,6 @@ t_nlist	*string_to_list(t_nlist *list, char *content)
 	return (list);
 }
 
-int	invalid_char_filter(char *to_check)
-{
-	while (*to_check != '\0')
-	{
-		if (!ft_isdigit(*to_check) && *to_check != ' ' && *to_check != '-')
-			return (FALSE);
-		to_check++;
-	}
-	return (TRUE);
-}
-
 t_nlist	*gen_stack(char	**content)
 {
 	t_nlist	*first_element;
@@ -72,8 +99,6 @@ t_nlist	*gen_stack(char	**content)
 	new_element = NULL;
 	while (*content != NULL)
 	{
-		if (!invalid_char_filter(*content))
-			return (NULL);
 		if (ft_strchr(*content, ' '))
 		{
 			string_to_list(first_element, *content);

@@ -60,7 +60,6 @@ void	ft_nlstadd_front(t_nlist **lst, t_nlist *new);
 /* INPUT FUNCTIONS */
 t_nlist	*gen_stack(char	**content);
 t_nlist	*string_to_list(t_nlist *list, char *content);
-int		invalid_char_filter(char *to_check);
 
 /* ROTATE FUNCTIONS */
 void	rotate(t_nlist *up);
@@ -78,9 +77,6 @@ void	rrr(t_nlist **a, t_nlist **b);
 void	push(t_nlist **from, t_nlist **to);
 void	pa(t_nlist **from, t_nlist **to);
 void	pb(t_nlist **from, t_nlist **to);
-
-/* MISC FUNCTIONS  */
-void	shuffle(t_nlist *up);
 
 /* FLATTEN FUNCTIONS */
 t_nlist	*find_largest(t_nlist *list);
