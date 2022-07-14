@@ -42,7 +42,21 @@ A program is free software if users have all of these freedoms.
 
 int	chk_individual(char	*argv)
 {
-
+	if (ft_strlen(argv) > 1 && argv[0] == '-')
+	{
+		if (!ft_isdigit(argv[1]))
+			return (FALSE);
+		else
+			argv++;
+	}
+	while (*argv != '\0')
+	{
+		if (!ft_isdigit(*argv))
+			return (FALSE);
+		else
+			argv++;
+	}
+	return (TRUE);
 }
 
 int	chk_list(char *argv)
