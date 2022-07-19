@@ -50,6 +50,9 @@ typedef struct s_num_list {
 	struct s_num_list	*next;
 }	t_nlist;
 
+/* UTIL FUNCTIONS */
+int		free_ptr_array(char *ptr[]);
+
 /* LIST FUNCTIONS */
 t_nlist	*ft_nlstnew(int content);
 void	ft_nlstclear(t_nlist **lst, void (*del)(void*));

@@ -63,15 +63,17 @@ static int	chk_individual(char	*argv)
 static int	chk_list(char *argv)
 {
 	char	**tmp_strarray;
+	char	**start;
 
 	tmp_strarray = ft_split(argv, ' ');
+	start = tmp_strarray;
 	while (*tmp_strarray)
 	{
 		if (!chk_individual(*tmp_strarray))
 			return (FALSE);
-		free(*tmp_strarray);
 		tmp_strarray++;
 	}
+	free_ptr_array(start);
 	return (TRUE);
 }
 
@@ -100,6 +102,7 @@ t_nlist	*string_to_list(t_nlist *list, char *content)
 	if (!content_array)
 		return (NULL);
 	sublist = gen_stack(content_array);
+	free_ptr_array(content_array);
 	ft_nlstadd_back(&list, sublist);
 	return (list);
 }
