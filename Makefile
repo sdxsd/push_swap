@@ -4,8 +4,8 @@
 # @file
 # @version 0.1
 
-CC = gcc
-CFLAGS = -g -Wall -Wextra -Werror
+CC = clang
+CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 LIB = libft/libft.a
 CFILES = \
@@ -18,6 +18,7 @@ CFILES = \
 		src/list.c \
 		src/sort.c \
 		src/input.c \
+		src/util.c \
 		src/swap.c
 OFILES = $(CFILES:.c=.o)
 

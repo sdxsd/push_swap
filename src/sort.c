@@ -39,7 +39,7 @@ A program is free software if users have all of these freedoms.
 
 #include "../include/push_swap.h"
 
-void	radix_sort(t_nlist *list_a, t_nlist *list_b, int size, int largest_int)
+void	radix_sort(t_nlist *list_a, t_nlist *list_b, int size, t_nlist *largest)
 {
 	int			bit_count;
 	int			bit_index;
@@ -48,7 +48,7 @@ void	radix_sort(t_nlist *list_a, t_nlist *list_b, int size, int largest_int)
 
 	bit_count = 0;
 	bit_index = 0;
-	while ((largest_int >> bit_count) != 0)
+	while ((largest->content >> bit_count) != 0)
 		bit_count++;
 	while (bit_index < bit_count)
 	{

@@ -89,7 +89,6 @@ int	main(int argc, char *argv[])
 {
 	t_nlist	*a;
 	t_nlist	*b;
-	t_nlist	*largest;
 
 	if (argc < 1)
 		return (0);
@@ -109,8 +108,7 @@ int	main(int argc, char *argv[])
 	else
 	{
 		flatten_nums(a);
-		largest = find_largest(a);
-		radix_sort(a, b, ft_lstsize((t_list *)a), largest->content);
+		radix_sort(a, b, ft_lstsize((t_list *)a), find_largest(a));
 	}
 	ft_nlstclear(&a, free);
 	ft_nlstclear(&b, free);
