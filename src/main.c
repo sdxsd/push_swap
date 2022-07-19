@@ -90,7 +90,7 @@ int	main(int argc, char *argv[])
 	t_nlist	*a;
 	t_nlist	*b;
 
-	if (argc < 1)
+	if (argc < 2 || ft_strlen(argv[1]) < 1)
 		return (0);
 	if (!chk_argv(argv + 1))
 		err_exit(0, "Error\n");
