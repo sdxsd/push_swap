@@ -99,6 +99,6 @@ void	sort_two(t_nlist *list);
 void	sort_three(t_nlist *list);
 void	sort_four(t_nlist *a, t_nlist *b);
 void	sort_five(t_nlist *a, t_nlist *b);
-void	radix_sort(t_nlist *list_a, t_nlist *list_b, int size, t_nlist *largest);
+void	radix_sort(t_nlist *list_a, t_nlist *list_b, int size, t_nlist *peak);
 
 #endif // PUSH_SWAP_H
