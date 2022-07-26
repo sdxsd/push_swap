@@ -90,9 +90,9 @@ int	main(int argc, char *argv[])
 	t_nlist	*a;
 	t_nlist	*b;
 
-	if (argc < 2 || ft_strlen(argv[1]) < 1)
+	if (argc < 2)
 		return (0);
-	if (!chk_argv(argv + 1))
+	if (!chk_argv(argv + 1) || ft_strlen(argv[0]) < 1)
 		err_exit(0, "Error\n");
 	a = gen_stack(argv + 1);
 	b = NULL;
