@@ -41,7 +41,7 @@ A program is free software if users have all of these freedoms.
 
 static int	chk_individual(char	*argv)
 {
-	if (ft_strlen(argv) < 1)
+	if (ft_strlen(argv) < 1 || ft_strlen(argv) > ft_strlen("-2147483648"))
 		return (FALSE);
 	if (ft_strlen(argv) > 1 && argv[0] == '-')
 	{
