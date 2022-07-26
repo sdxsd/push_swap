@@ -66,6 +66,8 @@ static int	chk_list(char *argv)
 	char	**start;
 
 	tmp_strarray = ft_split(argv, ' ');
+	if (!tmp_strarray[0])
+		return (FALSE);
 	start = tmp_strarray;
 	while (*tmp_strarray)
 	{
