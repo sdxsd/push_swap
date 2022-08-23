@@ -46,6 +46,6 @@ clean:
 	@rm -f $(OFILES)
 	@echo "CLEANED UP"
 
-.PHONY: clean re fclean all
+.PHONY: clean re fclean all libft
 
 # end
