@@ -32,6 +32,7 @@ $(NAME): $(OFILES) $(LIB)
 	@echo COMPILED: $<
 
 $(LIB):
+	git submodule update --init libft/
 	@make bonus -C libft/
 
 re: fclean all
