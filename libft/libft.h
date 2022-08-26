@@ -96,7 +96,7 @@ void	*ft_calloc(size_t count, size_t size);
 
 // ASCII NÆR INTEGER AF INTEGER NÆR ASCII
 char	*ft_itoa(int n);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 void	ft_putnbr(int nb);
 
 // INTEGER FUNKTIONEN
